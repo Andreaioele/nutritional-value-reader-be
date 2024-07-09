@@ -6,7 +6,15 @@ dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-  console.log('http://localhost:3000')
+
+  // Configura CORS
+  app.enableCors({
+    origin: '*', // Sostituisci con l'URL del tuo frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+
+  await app.listen(3011);
+  console.log('http://localhost:3011')
 }
 bootstrap();

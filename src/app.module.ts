@@ -3,11 +3,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongoClient } from 'mongodb';
 import * as dotenv from 'dotenv';
+import {OpenfoodModule} from "./openfood/openfood/openfood.module";
 
 dotenv.config();
 
 @Module({
-  imports: [],
+  imports: [
+    OpenfoodModule,
+  ],
   controllers: [AppController],
   providers: [
     AppService,
