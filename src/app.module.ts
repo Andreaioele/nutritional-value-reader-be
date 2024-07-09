@@ -17,7 +17,7 @@ dotenv.config();
     {
       provide: 'DATABASE_CONNECTION',
       useFactory: async () => {
-        const uri = process.env.MONGODB_URI;
+        const uri = `mongodb+srv://${process.env.MONGODB_USERNAME_PROD}:${process.env.MONGODB_PASSWORD_PROD}@cluster-ai.xepqosm.mongodb.net/${process.env.MONGODB_DATABASE_NAME_PROD}?retryWrites=true&w=majority`;
         const client = new MongoClient(uri);
         await client.connect();
         return client.db(process.env.MONGODB_DATABASE_NAME_LOCAL);
