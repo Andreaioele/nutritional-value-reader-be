@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
   @Get('/')
   checkHealth() {
-    return { status: 'API is healthy' };
+    return '<h1>API is healthy</h1>' ;
   }
 }
