@@ -2,24 +2,24 @@ import {Body, Controller, Get, Post} from '@nestjs/common';
 import axios from 'axios'
 import {OpenfoodService} from "./openfood.service";
 
-@Controller('openfood')
+@Controller('product')
 export class OpenfoodController {
   constructor(
     private readonly openfoodService: OpenfoodService
   ) {}
 
-  @Post('ofs')
+  @Post('find')
   async findProduct (
     @Body ('barcode') barcode: string
   ){
     try{
       const response = await this.openfoodService.findProductByBarcode(barcode);
-      if (response.status === "success"){
-        return response;
-      }else if(response.status === 404){
+      if(response.status === 404){
         return {
           error: "Product not found"
         }
+      }else{
+        return response;
       }
     }catch (error) {
       return { error: error.message };
