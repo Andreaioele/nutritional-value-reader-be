@@ -6,6 +6,7 @@ import { DatabaseModule } from './database/database.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import {CacheManagementModule} from "./cache/cache.module";
 import {PantryModule} from "./pantry/pantry.module";
+import {AuthModule} from "./auth/auth.module";
 
 @Module({
   imports: [
@@ -16,8 +17,9 @@ import {PantryModule} from "./pantry/pantry.module";
     }),
     DatabaseModule,
     CacheManagementModule,
+    AuthModule,
     ProductModule,
-    PantryModule
+    PantryModule,
   ],
   controllers: [AppController],
   providers: [AppService]
