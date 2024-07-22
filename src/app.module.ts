@@ -5,7 +5,7 @@ import { ProductModule } from './product/product.module';
 import { DatabaseModule } from './database/database.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import {CacheManagementModule} from "./cache/cache.module";
-import {FridgeModule} from "./fridge/fridge.module";
+import {PantryModule} from "./pantry/pantry.module";
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import {FridgeModule} from "./fridge/fridge.module";
     DatabaseModule,
     CacheManagementModule,
     ProductModule,
-    FridgeModule
+    PantryModule
   ],
   controllers: [AppController],
   providers: [AppService]

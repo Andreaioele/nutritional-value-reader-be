@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
 
 @Schema()
-export class Fridge extends Document {
+export class Pantry extends Document {
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'User', required: true })
   userId: MongooseSchema.Types.ObjectId;
 
@@ -13,4 +13,4 @@ export class Fridge extends Document {
   products: string[];
 }
 
-export const FridgeSchema = SchemaFactory.createForClass(Fridge);
+export const PantrySchema = SchemaFactory.createForClass(Pantry);
