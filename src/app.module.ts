@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { OpenfoodModule } from './openfood/openfood.module';
+import { ProductModule } from './product/product.module';
 import { DatabaseModule } from './database/database.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import {CacheManagementModule} from "./cache/cache.module";
@@ -14,7 +14,7 @@ import {CacheManagementModule} from "./cache/cache.module";
       ttl: 600, // Tempo di vita della cache in secondi
     }),
     DatabaseModule,
-    OpenfoodModule,
+    ProductModule,
     CacheManagementModule
   ],
   controllers: [AppController],

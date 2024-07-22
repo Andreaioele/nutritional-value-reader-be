@@ -45,8 +45,24 @@ export class CacheManagementController {
       );
     }
   }
+  /**
+   * @description
+   * Return all data in cache
+   * This endpoint Return all data in cache.
+   * @route POST /cache/get-all-data
+   * @returns { [key: string]: any; } - No content
+   */
+  @ApiTags('Cache')
+  @ApiOperation({
+    summary: 'This endpoint returns all value contained in cache',
+  })
+  @ApiResponse({
+    status: 204,
+    description: 'Cache retrieved',
+    isArray: false,
+  })
   @Get('get-all-data')
-  async getData() {
+  async getData(): Promise<{[key: string]: any;}> {
     //Get all keys
     const keys = await this.cacheManager.store.keys();
 
