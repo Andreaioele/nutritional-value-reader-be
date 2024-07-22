@@ -50,4 +50,19 @@ export class ProductController {
       return { error: error.message };
     }
   }
+
+  //TODO: retrieve multiple product from database. The input
+  /*
+ * The input is
+ * - A list of product IDs
+ * - A user authentication token
+ * - Any additional filters (e.g., category, price range)
+ *
+ * The method should:
+ * - Validate the input
+ * - Retrieve the products from the database
+ * - Handle any exceptions
+ * - Return the list of products
+ */
+
 }

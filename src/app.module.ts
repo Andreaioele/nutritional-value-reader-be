@@ -5,6 +5,7 @@ import { ProductModule } from './product/product.module';
 import { DatabaseModule } from './database/database.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import {CacheManagementModule} from "./cache/cache.module";
+import {FridgeModule} from "./fridge/fridge.module";
 
 @Module({
   imports: [
@@ -14,8 +15,9 @@ import {CacheManagementModule} from "./cache/cache.module";
       ttl: 600, // Tempo di vita della cache in secondi
     }),
     DatabaseModule,
+    CacheManagementModule,
     ProductModule,
-    CacheManagementModule
+    FridgeModule
   ],
   controllers: [AppController],
   providers: [AppService]
