@@ -1,12 +1,15 @@
 // login-user.dto.ts
 import {ApiProperty, ApiPropertyOptional} from '@nestjs/swagger';
+import {IsNotEmpty, IsString} from "class-validator";
 
 export class FindProductDto {
+  @IsString()
+  @IsNotEmpty()
   @ApiProperty({
     example: '8001120672438',
     description: 'Barcode of the product',
   })
-  readonly barcode: string;
+  code: string;
 }
 
 export class FindProductResponseDto {

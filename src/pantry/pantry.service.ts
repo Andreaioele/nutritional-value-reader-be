@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DatabaseService } from '../database/database.service';
+import {Collections, DatabaseService} from '../database/database.service';
 import { CreatePantryDto } from './dto/Pantry.dto';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class PantryService {
       description: createPantryDto.description,
       products: [],
     };
-    return this.dbService.insert(this.collectionName, pantry);
+    return this.dbService.insert(<Collections>this.collectionName, pantry);
   }
 
   // Implement other methods like deletePantry, addProduct, removeProduct
