@@ -1,18 +1,23 @@
-import { Injectable, Inject } from '@nestjs/common';
-import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
-import { User } from '../auth/schemas/user.schema'; // Import your model interface
+import {Injectable, Inject} from '@nestjs/common';
+import {Model} from 'mongoose';
+import {InjectModel} from '@nestjs/mongoose';
+import {User} from '../auth/schemas/user.schema';
+import {Pantry} from "../pantry/schemas/pantry.schema"; // Import your model interface
 
 @Injectable()
 export class DatabaseService {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<User> // Inject your model
-  ) {}
+    @InjectModel('User') private readonly userModel: Model<User>, // Inject your model
+    @InjectModel('Pantry') private readonly pantryModel: Model<Pantry>
+  ) {
+  }
 
   async find(collection: string, query: object): Promise<any[]> {
     switch (collection) {
       case 'users':
         return this.userModel.find(query).exec();
+      case 'pantries':
+        return this.pantryModel.find(query).exec();
       // Add more cases for other collections/models if needed
       default:
         throw new Error('Unknown collection');
@@ -25,6 +30,10 @@ export class DatabaseService {
         const newUser = new this.userModel(document);
         return newUser.save();
       // Add more cases for other collections/models if needed
+      case 'pantrys':
+        const newPantry = new this.pantryModel(document);
+        return newPantry.save();
+
       default:
         throw new Error('Unknown collection');
     }

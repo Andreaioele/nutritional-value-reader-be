@@ -8,10 +8,11 @@ export class PantryService {
 
   constructor(private readonly dbService: DatabaseService) {}
 
-  async createPantry(createPantryDto: CreatePantryDto): Promise<any> {
+  async createPantry(createPantryDto: CreatePantryDto, userId: string): Promise<any> {
     const pantry = {
-      userId: createPantryDto.userId,
+      userId: userId,
       name: createPantryDto.name,
+      description: createPantryDto.description,
       products: [],
     };
     return this.dbService.insert(this.collectionName, pantry);

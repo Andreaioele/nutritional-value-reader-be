@@ -24,7 +24,7 @@ export class ProductService {
 
       // Verifica se il prodotto è presente nel database
       const productFromDB = await this.dbService.find('products', {code: findProductDto.barcode});
-      if (productFromDB.length>0) {
+      if (productFromDB.length > 0) {
         Logger.log(`Product from database: ${JSON.stringify(findProductDto.barcode)}`);
         // Inserisci il prodotto nella cache
         await this.cacheManager.set(findProductDto.barcode.toString(), productFromDB[0], 0);
