@@ -7,9 +7,9 @@ import { AuthService } from '../auth.service';
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
   constructor(private readonly authService: AuthService) {
     super({
-      clientID: 'yourGoogleClientID',
-      clientSecret: 'yourGoogleClientSecret',
-      callbackURL: 'http://localhost:3000/auth/google/callback',
+      clientID: '147700121593-null6hkqg4849csorsb7lcbhpq53eato.apps.googleusercontent.com',
+      clientSecret: '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',
+      callbackURL: 'http://localhost:3011/auth/google/callback',
       scope: ['email', 'profile'],
     });
   }
@@ -25,8 +25,10 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       email: emails[0].value,
       firstName: name.givenName,
       lastName: name.familyName,
+      isGoogleAccount: true,
       accessToken,
     };
-    done(null, user);
+    const userFromDb = await this.authService.findOrCreate(user);
+    done(null, userFromDb);
   }
 }

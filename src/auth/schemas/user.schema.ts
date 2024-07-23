@@ -15,21 +15,19 @@ export class User {
   @Prop({ required: true, unique: true })
   email: string;
 
-  @Prop({ required: true })
-  password: string;
+  @Prop({ required: false })
+  password?: string;
+
+  @Prop({ required: false })
+  isGoogleAccount?: boolean;
 
   comparePassword: (attempt: string) => Promise<boolean>;
-
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
 
-UserSchema.methods.comparePassword = async function (attempt: string): Promise<boolean> {
-  return await bcrypt.compare(attempt, this.password);
-};
-
 UserSchema.pre<UserDocument>('save', async function (next) {
-  if (!this.isModified('password')) {
+  if (!this.isModified('password') || !this.password) {
     return next();
   }
   const salt = await bcrypt.genSalt();
@@ -37,3 +35,9 @@ UserSchema.pre<UserDocument>('save', async function (next) {
   next();
 });
 
+UserSchema.methods.comparePassword = async function(attempt: string): Promise<boolean> {
+  if (!this.password) {
+    return false;
+  }
+  return await bcrypt.compare(attempt, this.password);
+};

@@ -1,15 +1,22 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import {NestFactory} from '@nestjs/core';
+import {AppModule} from './app.module';
 import * as dotenv from 'dotenv';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import {SwaggerModule, DocumentBuilder} from '@nestjs/swagger';
 import * as passport from 'passport';
-
+import {ValidationPipe} from "@nestjs/common";
 
 dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(passport.initialize()); // Inizializza Passport senza sessioni
+
+  // Abilita la validazione globale
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true,
+    forbidNonWhitelisted: true,
+    transform: true,
+  }));
 
   const options = new DocumentBuilder()
     .setTitle('OFS')
@@ -34,4 +41,5 @@ async function bootstrap() {
   console.log('http://localhost:3011')
   console.log(`Api docs available at http://localhost:3011/api/docs`);
 }
+
 bootstrap();
