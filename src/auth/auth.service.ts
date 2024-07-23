@@ -81,4 +81,15 @@ export class AuthService {
       throw new InternalServerErrorException('Error finding or creating user');
     }
   }
+  async find(email: string): Promise<User> {
+    try {
+      const existingUser = await this.userModel.findOne({ email: email }).exec();
+      if (existingUser) {
+        return existingUser;
+      }
+    } catch (error) {
+      Logger.error('Error finding user', error);
+      throw new InternalServerErrorException('Error finding user');
+    }
+  }
 }

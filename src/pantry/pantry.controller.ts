@@ -24,8 +24,7 @@ export class PantryController {
     type: CreatePantryResponseDto,
   })
   @ApiResponse({
-    //TODO: sistemare status code per unauthorized
-    status: 401,
+    status: 400,
     description: 'Pantry not created',
     isArray: false,
     type: CreatePantryErrorDto,
@@ -53,8 +52,7 @@ export class PantryController {
     type: AddProductToPantryResponseDto,
   })
   @ApiResponse({
-    //TODO: sistemare status code per unauthorized
-    status: 401,
+    status: 400,
     description: 'Product not added',
     isArray: false,
     type: AddProductToPantryErrorResponseDto,
@@ -73,7 +71,7 @@ export class PantryController {
       };  // Assuming MongoDB returns the inserted document in `ops`
     } catch (error) {
       Logger.log(error);
-      throw new HttpException({ error: 'Pantry not created' }, HttpStatus.UNAUTHORIZED);
+      throw new HttpException({ error: 'Pantry not created' }, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
