@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable, NotFoundException} from '@nestjs/common';
 import {Collections, DatabaseService} from '../database/database.service';
-import { CreatePantryDto } from './dto/Pantry.dto';
+import { CreatePantryDto } from './dto/create-pantry.dto';
+import {AddProductToPantryDto} from "./dto/add-product.dto";
 
 @Injectable()
 export class PantryService {
-  private readonly collectionName = 'pantrys';
+  private readonly collectionName = 'pantries';
 
   constructor(private readonly dbService: DatabaseService) {}
 
@@ -19,4 +20,20 @@ export class PantryService {
   }
 
   // Implement other methods like deletePantry, addProduct, removeProduct
+  async addProductToPantry(addProductToPantryDto: AddProductToPantryDto, userId: string, pantryId: string): Promise<any> {
+    // Trova la pantry
+    const pantry = await this.dbService.find(Collections.PANTRIES, { _id: pantryId, userId });
+    if (!pantry || pantry.length === 0) {
+      throw new NotFoundException('Pantry not found');
+    }
+
+    const pantryDoc = pantry[0];
+    // Aggiungi il barcode del prodotto alla pantry se non è già presente
+    if (!pantryDoc.products.includes(addProductToPantryDto.code)) {
+      pantryDoc.products.push(addProductToPantryDto.code);
+      await this.dbService.update(Collections.PANTRIES, { _id: pantryId }, { products: pantryDoc.products });
+    }
+
+    return pantryDoc;
+  }
 }

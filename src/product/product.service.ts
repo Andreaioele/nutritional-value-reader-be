@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import axios from 'axios';
 import { Cache } from 'cache-manager';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
-import { FindProductDto } from './dto/Product.dto';
+import { FindProductDto } from './dto/create-product';
 import { Product } from './schemas/product.schema';
 
 @Injectable()
@@ -36,7 +36,7 @@ export class ProductService {
       const headers = {
         'Content-Type': 'application/json',
       };
-      const url = `https://world.openfoodfacts.net/api/v3/product/${findProductDto.code}`;
+      const url =  `https://world.openfoodfacts.net/api/v3/product/${findProductDto.code}`;
 
       const response = await axios.get(url, { headers });
       //Logger.log('Risposta chiamata:', response.data.product);

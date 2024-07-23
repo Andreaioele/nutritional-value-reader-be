@@ -1,7 +1,7 @@
 import {Body, Controller, Get, Post} from '@nestjs/common';
 import axios from 'axios'
 import {ProductService} from "./product.service";
-import {FindProductDto, FindProductErrorDto, FindProductResponseDto} from "./dto/Product.dto";
+import {FindProductDto, FindProductErrorDto, FindProductResponseDto} from "./dto/create-product";
 import {ApiBody, ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 
 @Controller('product')

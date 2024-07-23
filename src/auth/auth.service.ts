@@ -43,6 +43,9 @@ export class AuthService {
       throw new UnauthorizedException('Invalid email or password');
     } catch (error) {
       Logger.error('Error validating user', error);
+      if( error && error.status === 401) {
+        throw new UnauthorizedException(error.message);
+      }
       throw new InternalServerErrorException('Error validating user');
     }
   }

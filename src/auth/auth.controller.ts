@@ -5,7 +5,7 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { CreateUserDto } from './dto/create-user.dto';
 import {AuthGuard} from "@nestjs/passport";
 import {ApiBody, ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
-import {CreatePantryDto, CreatePantryErrorDto, CreatePantryResponseDto} from "../pantry/dto/Pantry.dto";
+import {CreatePantryDto, CreatePantryErrorDto, CreatePantryResponseDto} from "../pantry/dto/create-pantry.dto";
 import {CreateUserResponseDto} from "./dto/create-user-response.dto";
 import {CreateUserErrorDto, CreateUserValidationErrorDto} from "./dto/create-user-error.dto";
 
