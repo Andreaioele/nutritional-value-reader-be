@@ -1,61 +1,50 @@
-import {Injectable, Inject} from '@nestjs/common';
-import {Model} from 'mongoose';
-import {InjectModel} from '@nestjs/mongoose';
-import {User} from '../auth/schemas/user.schema';
-import {Pantry} from "../pantry/schemas/pantry.schema"; // Import your model interface
+import { Injectable, Inject } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { User } from '../auth/schemas/user.schema';
+import { Pantry } from "../pantry/schemas/pantry.schema";
+
+export enum Collections {
+  USERS = 'users',
+  PANTRIES = 'pantries',
+}
 
 @Injectable()
 export class DatabaseService {
   constructor(
-    @InjectModel('User') private readonly userModel: Model<User>, // Inject your model
+    @InjectModel('User') private readonly userModel: Model<User>,
     @InjectModel('Pantry') private readonly pantryModel: Model<Pantry>
-  ) {
-  }
+  ) {}
 
-  async find(collection: string, query: object): Promise<any[]> {
+  private getModel(collection: Collections): Model<any> {
     switch (collection) {
-      case 'users':
-        return this.userModel.find(query).exec();
-      case 'pantries':
-        return this.pantryModel.find(query).exec();
-      // Add more cases for other collections/models if needed
+      case Collections.USERS:
+        return this.userModel;
+      case Collections.PANTRIES:
+        return this.pantryModel;
       default:
         throw new Error('Unknown collection');
     }
   }
 
-  async insert(collection: string, document: object): Promise<any> {
-    switch (collection) {
-      case 'users':
-        const newUser = new this.userModel(document);
-        return newUser.save();
-      // Add more cases for other collections/models if needed
-      case 'pantrys':
-        const newPantry = new this.pantryModel(document);
-        return newPantry.save();
-
-      default:
-        throw new Error('Unknown collection');
-    }
+  async find(collection: Collections, query: object): Promise<any[]> {
+    const model = this.getModel(collection);
+    return model.find(query).exec();
   }
 
-  async update(collection: string, query: object, update: object): Promise<any> {
-    switch (collection) {
-      case 'users':
-        return this.userModel.updateOne(query, update).exec();
-      // Add more cases for other collections/models if needed
-      default:
-        throw new Error('Unknown collection');
-    }
+  async insert(collection: Collections, document: object): Promise<any> {
+    const model = this.getModel(collection);
+    const newDocument = new model(document);
+    return newDocument.save();
   }
 
-  async delete(collection: string, query: object): Promise<any> {
-    switch (collection) {
-      case 'users':
-        return this.userModel.deleteOne(query).exec();
-      // Add more cases for other collections/models if needed
-      default:
-        throw new Error('Unknown collection');
-    }
+  async update(collection: Collections, query: object, update: object): Promise<any> {
+    const model = this.getModel(collection);
+    return model.updateOne(query, update).exec();
+  }
+
+  async delete(collection: Collections, query: object): Promise<any> {
+    const model = this.getModel(collection);
+    return model.deleteOne(query).exec();
   }
 }
