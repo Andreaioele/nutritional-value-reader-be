@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {IsArray, IsInt, IsNotEmpty, IsString} from 'class-validator';
+import {IsString, IsNotEmpty, IsArray, IsInt} from 'class-validator';
 
-export class AddProductToPantryDto {
+export class RemoveProductFromPantryDto {
   @ApiProperty({
-    description: 'Code of the product to be added to the pantry',
+    description: 'Code of the product to be removed from the pantry',
     example: 'prod-001'
   })
   @IsString()
@@ -11,16 +11,16 @@ export class AddProductToPantryDto {
   code: string;
 }
 
-export class AddProductToPantryResponseDto {
+export class RemoveProductToPantryResponseDto {
   @ApiProperty({
-    description: 'Product added',
+    description: 'Product removed',
     example: true
   })
   @IsString()
   success: boolean
 }
 
-export class AddProductToPantryErrorResponseDto {
+export class RemoveProductToPantryErrorResponseDto {
   @ApiProperty({
     description: 'Array of error messages',
     example: ["Code should not be empty", "code must be a string"]

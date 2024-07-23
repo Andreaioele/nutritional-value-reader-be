@@ -8,6 +8,11 @@ import {
   AddProductToPantryErrorResponseDto,
   AddProductToPantryResponseDto
 } from "./dto/add-product.dto";
+import {
+  RemoveProductFromPantryDto,
+  RemoveProductToPantryErrorResponseDto,
+  RemoveProductToPantryResponseDto
+} from "./dto/remove-product.dto";
 
 @ApiTags('Pantry')
 @Controller('pantry')
@@ -67,7 +72,7 @@ export class PantryController {
       const userId = req.user.userId;  // Assume that req.user contains the decoded JWT payload with userId
       const result = await this.pantryService.addProductToPantry(addProductToPantryDto, userId, pantryId);
       return {
-        pantryId: result._id.toString(),
+        success: true,
       };  // Assuming MongoDB returns the inserted document in `ops`
     } catch (error) {
       Logger.log(error);
@@ -75,7 +80,36 @@ export class PantryController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Remove product from user\'s pantry' })
+  @ApiBody({ type: RemoveProductFromPantryDto })
+  @ApiResponse({
+    status: 200,
+    description: 'Product removed',
+    isArray: false,
+    type: RemoveProductToPantryResponseDto,
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Product not removed',
+    isArray: false,
+    type: RemoveProductToPantryErrorResponseDto,
+  })
+  @Post('removeProduct')
+  async removeProductFromPantry(
+    @Body() removeProductFromPantryDto: RemoveProductFromPantryDto,
+    @Request() req,
+    @Query('pantryId') pantryId: string
+  ): Promise<{ success: boolean }> {
+    try {
+      const userId = req.user.userId;  // Assume that req.user contains the decoded JWT payload with userId
+      await this.pantryService.removeProductFromPantry(removeProductFromPantryDto, userId, pantryId);
+      return { success: true };
+    } catch (error) {
+      Logger.log(error);
+      throw new HttpException({ error: 'Product not removed' }, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
   // TODO: deletePantry
-  // TODO: addProduct
-  // TODO: removeProduct
 }

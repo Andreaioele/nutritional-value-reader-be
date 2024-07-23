@@ -2,6 +2,7 @@ import {Injectable, NotFoundException} from '@nestjs/common';
 import {Collections, DatabaseService} from '../database/database.service';
 import { CreatePantryDto } from './dto/create-pantry.dto';
 import {AddProductToPantryDto} from "./dto/add-product.dto";
+import {RemoveProductFromPantryDto} from "./dto/remove-product.dto";
 
 @Injectable()
 export class PantryService {
@@ -35,5 +36,11 @@ export class PantryService {
     }
 
     return pantryDoc;
+  }
+
+  async removeProductFromPantry(removeProductFromPantryDto: RemoveProductFromPantryDto, userId: string, pantryId: string): Promise<any> {
+    const query = { _id: pantryId, userId: userId };
+    const update = { $pull: { products: removeProductFromPantryDto.code } };
+    return this.dbService.update(<Collections>this.collectionName, query, update);
   }
 }
