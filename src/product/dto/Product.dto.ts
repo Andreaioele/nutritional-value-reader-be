@@ -1,10 +1,12 @@
-// login-user.dto.ts
 import {ApiProperty, ApiPropertyOptional} from '@nestjs/swagger';
-import {IsNotEmpty, IsString} from "class-validator";
+import {IsNotEmpty, IsString, Matches} from "class-validator";
 
 export class FindProductDto {
   @IsString()
   @IsNotEmpty()
+  @Matches(/^\d+$/, {
+    message: 'Code must be a string of digits',
+  })
   @ApiProperty({
     example: '8001120672438',
     description: 'Barcode of the product',

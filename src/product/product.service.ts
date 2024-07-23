@@ -39,7 +39,7 @@ export class ProductService {
       const url = `https://world.openfoodfacts.net/api/v3/product/${findProductDto.code}`;
 
       const response = await axios.get(url, { headers });
-      Logger.log('Risposta chiamata:', response.data.product);
+      //Logger.log('Risposta chiamata:', response.data.product);
 
       if (response.data && response.data.product) {
         // Inserisci il prodotto nella cache

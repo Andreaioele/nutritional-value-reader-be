@@ -42,7 +42,7 @@ export class ProductController {
     try {
       const response = await this.openfoodService.findProductByBarcode(productDto);
       if (response.status === 404) {
-        return { error: "ProductService not found" };
+        return { error: "Product not found" };
       } else {
         return { product: response };
       }
