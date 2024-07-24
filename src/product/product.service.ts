@@ -6,6 +6,7 @@ import { Cache } from 'cache-manager';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { FindProductDto } from './dto/create-product';
 import { Product } from './schemas/product.schema';
+import * as process from "node:process";
 
 @Injectable()
 export class ProductService {
@@ -28,7 +29,7 @@ export class ProductService {
       if (productFromDB) {
         Logger.log(`Product from database: ${JSON.stringify(findProductDto.code)}`);
         // Inserisci il prodotto nella cache
-        await this.cacheManager.set(findProductDto.code.toString(), productFromDB, 0);
+        await this.cacheManager.set(findProductDto.code.toString(), productFromDB, parseInt(process.env.CACHE_TTL));
         return productFromDB;
       }
 
