@@ -31,6 +31,10 @@ export class DatabaseService {
     const model = this.getModel(collection);
     return model.find(query).exec();
   }
+  async findOne(collection: Collections, query: object): Promise<any[]> {
+    const model = this.getModel(collection);
+    return model.findOne(query).exec();
+  }
 
   async insert(collection: Collections, document: object): Promise<any> {
     const model = this.getModel(collection);

@@ -1,4 +1,15 @@
-import {Controller, Post, Body, Request, Query, HttpException, HttpStatus, UseGuards, Logger} from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Request,
+  Query,
+  HttpException,
+  HttpStatus,
+  UseGuards,
+  Logger,
+  Get
+} from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePantryDto, CreatePantryErrorDto, CreatePantryResponseDto } from './dto/create-pantry.dto';
 import { PantryService } from './pantry.service';
@@ -13,6 +24,8 @@ import {
   RemoveProductToPantryErrorResponseDto,
   RemoveProductToPantryResponseDto
 } from "./dto/remove-product.dto";
+import {PantryDto} from "./dto/pantry.dto";
+import {GetPantryByCodeResponseErrorDto} from "./dto/get-pantry-by-code-response.dto";
 
 @ApiTags('Pantry')
 @Controller('pantry')
@@ -97,6 +110,49 @@ export class PantryController {
   })
   @Post('removeProduct')
   async removeProductFromPantry(
+    @Body() removeProductFromPantryDto: RemoveProductFromPantryDto,
+    @Request() req,
+    @Query('pantryId') pantryId: string
+  ): Promise<{ success: boolean }> {
+    try {
+      const userId = req.user.userId;  // Assume that req.user contains the decoded JWT payload with userId
+      await this.pantryService.removeProductFromPantry(removeProductFromPantryDto, userId, pantryId);
+      return { success: true };
+    } catch (error) {
+      Logger.log(error);
+      throw new HttpException({ error: 'Product not removed' }, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: 'Get pantry by code' })
+  @ApiResponse({
+    status: 200,
+    description: 'Pantry retrieved',
+    isArray: false,
+    type: PantryDto,
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Pantry not found',
+    isArray: false,
+    type: GetPantryByCodeResponseErrorDto,
+  })
+  @Get('getPantry')
+  async getPantryByCode(
+    @Request() req,
+    @Query('pantryId') pantryId: string
+  ): Promise<PantryDto> {
+    try {
+      const userId = req.user.userId;  // Assume that req.user contains the decoded JWT payload with userId
+      return this.pantryService.getPantryByCode(userId, pantryId);
+    } catch (error) {
+      Logger.log(error);
+      throw new HttpException({ error: 'Product not removed' }, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @Get()
+  async getPantryProductsDetailByCode(
     @Body() removeProductFromPantryDto: RemoveProductFromPantryDto,
     @Request() req,
     @Query('pantryId') pantryId: string

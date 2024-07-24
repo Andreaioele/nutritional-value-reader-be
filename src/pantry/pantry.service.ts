@@ -43,4 +43,13 @@ export class PantryService {
     const update = { $pull: { products: removeProductFromPantryDto.code } };
     return this.dbService.update(<Collections>this.collectionName, query, update);
   }
+
+  async getPantryByCode(userId: string, pantryId: string): Promise<any> {
+    const query = {_id: pantryId, userId: userId};
+    const response = await this.dbService.findOne(<Collections>this.collectionName, query);
+    if (!response) {
+      throw new NotFoundException('Pantry not found');
+    }
+    return response;
+  }
 }
