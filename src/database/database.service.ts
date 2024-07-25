@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User } from '../auth/schemas/user.schema';
 import { Pantry } from "../pantry/schemas/pantry.schema";
 import {ProductDto} from "../product/dto/product.dto";
+import {Product} from "../product/schemas/product.schema";
 
 export enum Collections {
   USERS = 'users',
@@ -59,7 +60,7 @@ export class DatabaseService {
     return model.deleteOne(query).exec();
   }
 
-  async findManyByCodes(collection: Collections, codes: string[]): Promise<ProductDto[]> {
+  async findManyByCodes<ProductDto>(collection: Collections, codes: string[]): Promise<ProductDto[]> {
     const model = this.getModel(collection);
     return model.find({ code: { $in: codes } }).exec();
   }
