@@ -1,371 +1,611 @@
 import {ApiProperty} from '@nestjs/swagger';
-import {IsString, IsArray, IsOptional, IsNumber, IsObject, ValidateNested, ArrayNotEmpty} from 'class-validator';
+import {IsArray, IsNumber, IsObject, IsOptional, IsString, ValidateNested} from 'class-validator';
 import {Type} from 'class-transformer';
 
-export class Agribalyse {
-  @ApiProperty({description: 'Agribalyse food code', example: '26039'})
+export class NutrimentsData {
+  @ApiProperty({description: 'Carbohydrates in grams'})
+  @IsNumber()
+  carbohydrates: number;
+
+  @ApiProperty({description: 'Carbohydrates per 100g in grams'})
+  @IsNumber()
+  carbohydrates_100g: number;
+
+  @ApiProperty({description: 'Carbohydrates per serving in grams'})
+  @IsNumber()
+  carbohydrates_serving: number;
+
+  @ApiProperty({description: 'Carbohydrates unit', example: 'g'})
+  @IsString()
+  carbohydrates_unit: string;
+
+  @ApiProperty({description: 'Carbohydrates value in grams'})
+  @IsNumber()
+  carbohydrates_value: number;
+
+  @ApiProperty({description: 'Energy in kJ'})
+  @IsNumber()
+  energy: number;
+
+  @ApiProperty({description: 'Energy in kcal'})
+  @IsNumber()
+  energy_kcal: number;
+
+  @ApiProperty({description: 'Energy per 100g in kcal'})
+  @IsNumber()
+  energy_kcal_100g: number;
+
+  @ApiProperty({description: 'Energy per serving in kcal'})
+  @IsNumber()
+  energy_kcal_serving: number;
+
+  @ApiProperty({description: 'Energy unit in kcal', example: 'kcal'})
+  @IsString()
+  energy_kcal_unit: string;
+
+  @ApiProperty({description: 'Energy value in kcal'})
+  @IsNumber()
+  energy_kcal_value: number;
+
+  @ApiProperty({description: 'Computed energy value in kcal'})
+  @IsNumber()
+  energy_kcal_value_computed: number;
+
+  @ApiProperty({description: 'Fat in grams'})
+  @IsNumber()
+  fat: number;
+
+  @ApiProperty({description: 'Fat per 100g in grams'})
+  @IsNumber()
+  fat_100g: number;
+
+  @ApiProperty({description: 'Fat per serving in grams'})
+  @IsNumber()
+  fat_serving: number;
+
+  @ApiProperty({description: 'Fat unit', example: 'g'})
+  @IsString()
+  fat_unit: string;
+
+  @ApiProperty({description: 'Fat value in grams'})
+  @IsNumber()
+  fat_value: number;
+
+  @ApiProperty({description: 'Fiber in grams'})
+  @IsNumber()
+  fiber: number;
+
+  @ApiProperty({description: 'Fiber per 100g in grams'})
+  @IsNumber()
+  fiber_100g: number;
+
+  @ApiProperty({description: 'Fiber per serving in grams'})
+  @IsNumber()
+  fiber_serving: number;
+
+  @ApiProperty({description: 'Fiber unit', example: 'g'})
+  @IsString()
+  fiber_unit: string;
+
+  @ApiProperty({description: 'Fiber value in grams'})
+  @IsNumber()
+  fiber_value: number;
+
+  @ApiProperty({description: 'Nova group value'})
+  @IsNumber()
+  nova_group: number;
+
+  @ApiProperty({description: 'Nova group value for 100g'})
+  @IsNumber()
+  nova_group_100g: number;
+
+  @ApiProperty({description: 'Nova group value for serving'})
+  @IsNumber()
+  nova_group_serving: number;
+
+  @ApiProperty({description: 'Nutrition score for France'})
+  @IsNumber()
+  nutrition_score_fr: number;
+
+  @ApiProperty({description: 'Nutrition score for France per 100g'})
+  @IsNumber()
+  nutrition_score_fr_100g: number;
+
+  @ApiProperty({description: 'Proteins in grams'})
+  @IsNumber()
+  proteins: number;
+
+  @ApiProperty({description: 'Proteins per 100g in grams'})
+  @IsNumber()
+  proteins_100g: number;
+
+  @ApiProperty({description: 'Proteins per serving in grams'})
+  @IsNumber()
+  proteins_serving: number;
+
+  @ApiProperty({description: 'Proteins unit', example: 'g'})
+  @IsString()
+  proteins_unit: string;
+
+  @ApiProperty({description: 'Proteins value in grams'})
+  @IsNumber()
+  proteins_value: number;
+
+  @ApiProperty({description: 'Salt in grams'})
+  @IsNumber()
+  salt: number;
+
+  @ApiProperty({description: 'Salt per 100g in grams'})
+  @IsNumber()
+  salt_100g: number;
+
+  @ApiProperty({description: 'Salt per serving in grams'})
+  @IsNumber()
+  salt_serving: number;
+
+  @ApiProperty({description: 'Salt unit', example: 'g'})
+  @IsString()
+  salt_unit: string;
+
+  @ApiProperty({description: 'Salt value in grams'})
+  @IsNumber()
+  salt_value: number;
+
+  @ApiProperty({description: 'Saturated fat in grams'})
+  @IsNumber()
+  saturated_fat: number;
+
+  @ApiProperty({description: 'Saturated fat per 100g in grams'})
+  @IsNumber()
+  saturated_fat_100g: number;
+
+  @ApiProperty({description: 'Saturated fat per serving in grams'})
+  @IsNumber()
+  saturated_fat_serving: number;
+
+  @ApiProperty({description: 'Saturated fat unit', example: 'g'})
+  @IsString()
+  saturated_fat_unit: string;
+
+  @ApiProperty({description: 'Saturated fat value in grams'})
+  @IsNumber()
+  saturated_fat_value: number;
+
+  @ApiProperty({description: 'Sodium in grams'})
+  @IsNumber()
+  sodium: number;
+
+  @ApiProperty({description: 'Sodium per 100g in grams'})
+  @IsNumber()
+  sodium_100g: number;
+
+  @ApiProperty({description: 'Sodium per serving in grams'})
+  @IsNumber()
+  sodium_serving: number;
+
+  @ApiProperty({description: 'Sodium unit', example: 'g'})
+  @IsString()
+  sodium_unit: string;
+
+  @ApiProperty({description: 'Sodium value in grams'})
+  @IsNumber()
+  sodium_value: number;
+
+  @ApiProperty({description: 'Sugars in grams'})
+  @IsNumber()
+  sugars: number;
+
+  @ApiProperty({description: 'Sugars per 100g in grams'})
+  @IsNumber()
+  sugars_100g: number;
+
+  @ApiProperty({description: 'Sugars per serving in grams'})
+  @IsNumber()
+  sugars_serving: number;
+
+  @ApiProperty({description: 'Sugars unit', example: 'g'})
+  @IsString()
+  sugars_unit: string;
+
+  @ApiProperty({description: 'Sugars value in grams'})
+  @IsNumber()
+  sugars_value: number;
+
+}
+
+export class AgribalyseData {
+  @ApiProperty({description: 'Agribalyse food code'})
   @IsString()
   agribalyse_food_code: string;
 
-  @ApiProperty({description: 'CO2 emissions from agriculture', example: 5.3885872})
+  @ApiProperty({description: 'CO2 from agriculture'})
   @IsNumber()
   co2_agriculture: number;
 
-  @ApiProperty({description: 'CO2 emissions from consumption', example: 0})
+  @ApiProperty({description: 'CO2 from consumption'})
   @IsNumber()
   co2_consumption: number;
 
-  @ApiProperty({description: 'CO2 emissions from distribution', example: 0.022630512})
+  @ApiProperty({description: 'CO2 from distribution'})
   @IsNumber()
   co2_distribution: number;
 
-  @ApiProperty({description: 'CO2 emissions from packaging', example: 9.7697831})
+  @ApiProperty({description: 'CO2 from packaging'})
   @IsNumber()
   co2_packaging: number;
 
-  @ApiProperty({description: 'CO2 emissions from processing', example: 0.59392979})
+  @ApiProperty({description: 'CO2 from processing'})
   @IsNumber()
   co2_processing: number;
 
-  @ApiProperty({description: 'Total CO2 emissions', example: 16.893125602})
+  @ApiProperty({description: 'Total CO2 emissions'})
   @IsNumber()
   co2_total: number;
 
-  @ApiProperty({description: 'CO2 emissions from transportation', example: 1.118195})
+  @ApiProperty({description: 'CO2 from transportation'})
   @IsNumber()
   co2_transportation: number;
 
-  @ApiProperty({description: 'DQR value', example: '3.1'})
+  @ApiProperty({description: 'Code'})
+  @IsNumber()
+  code: number;
+
+  @ApiProperty({description: 'DQR (Data Quality Rating)'})
   @IsString()
   dqr: string;
 
-  @ApiProperty({description: 'Environmental footprint from agriculture', example: 1.0250893})
+  @ApiProperty({description: 'Environmental footprint from agriculture'})
   @IsNumber()
   ef_agriculture: number;
 
-  @ApiProperty({description: 'Environmental footprint from consumption', example: 0})
+  @ApiProperty({description: 'Environmental footprint from consumption'})
   @IsNumber()
   ef_consumption: number;
 
-  @ApiProperty({description: 'Environmental footprint from distribution', example: 0.006448083})
+  @ApiProperty({description: 'Environmental footprint from distribution'})
   @IsNumber()
   ef_distribution: number;
 
-  @ApiProperty({description: 'Environmental footprint from packaging', example: 0.88558917})
+  @ApiProperty({description: 'Environmental footprint from packaging'})
   @IsNumber()
   ef_packaging: number;
 
-  @ApiProperty({description: 'Environmental footprint from processing', example: 0.062197864})
+  @ApiProperty({description: 'Environmental footprint from processing'})
   @IsNumber()
   ef_processing: number;
 
-  @ApiProperty({description: 'Total environmental footprint', example: 2.076183865})
+  @ApiProperty({description: 'Total environmental footprint'})
   @IsNumber()
   ef_total: number;
 
-  @ApiProperty({description: 'Environmental footprint from transportation', example: 0.096859448})
+  @ApiProperty({description: 'Environmental footprint from transportation'})
   @IsNumber()
   ef_transportation: number;
 
-  @ApiProperty({description: 'Is beverage', example: 0})
+  @ApiProperty({description: 'Indicates if the product is a beverage'})
   @IsNumber()
   is_beverage: number;
 
-  @ApiProperty({description: 'Name in English', example: 'Tuna, plain, canned, drained'})
+  @ApiProperty({description: 'Product name in English'})
   @IsString()
   name_en: string;
 
-  @ApiProperty({description: 'Name in French', example: 'Thon, au naturel, appertisé, égoutté'})
+  @ApiProperty({description: 'Product name in French'})
   @IsString()
   name_fr: string;
 
-  @ApiProperty({description: 'Score', example: 11})
+  @ApiProperty({description: 'Score'})
   @IsNumber()
   score: number;
 
-  @ApiProperty({description: 'Version', example: '3.1'})
+  @ApiProperty({description: 'Version'})
   @IsString()
   version: string;
 }
 
 export class EcoscoreData {
-  @ApiProperty({type: Agribalyse})
   @ValidateNested()
-  @Type(() => Agribalyse)
-  agribalyse: Agribalyse;
+  @Type(() => AgribalyseData)
+  agrybalyse: AgribalyseData;
 
-  @ApiProperty({description: 'Grade', example: 'e'})
+  @ApiProperty({description: 'The environmental classification grade.'})
   @IsString()
   grade: string;
 
-  @ApiProperty({description: 'Grades by country', type: 'object'})
+  @ApiProperty({description: 'Grades for different categories.'})
   @IsObject()
-  grades: Record<string, string>;
+  grades: object;
 
-  @ApiProperty({description: 'Previous data', type: 'object'})
-  @IsObject()
-  previous_data: Record<string, any>;
-
-  @ApiProperty({description: 'Score', example: 5})
+  @ApiProperty({description: 'Overall score.'})
   @IsNumber()
   score: number;
 
-  @ApiProperty({description: 'Scores by country', type: 'object'})
+  @ApiProperty({description: ''})
   @IsObject()
-  scores: Record<string, number>;
+  scores: object;
 
-  @ApiProperty({description: 'Status', example: 'known'})
+  @ApiProperty({description: 'Status of the data.'})
   @IsString()
   status: string;
 }
 
 export class ProductDto {
-  @ApiProperty({description: 'Unique identifier for the product', example: '8001120811011'})
+  @ApiProperty({description: 'Product ID'})
   @IsString()
   _id: string;
 
-  @ApiProperty({description: 'Keywords associated with the product', example: ['no', 'canned', 'tuna']})
+  @ApiProperty({description: 'Keywords associated with the product', type: [String]})
   @IsArray()
-  @ArrayNotEmpty()
   @IsString({each: true})
   _keywords: string[];
 
-  @ApiProperty({description: 'Tags for countries where the product is added', example: []})
+  @ApiProperty({description: 'Tags for added countries', type: [String]})
   @IsArray()
-  @IsOptional()
   @IsString({each: true})
   added_countries_tags: string[];
 
-  @ApiProperty({description: 'Tags for allergens', example: ['en:fish', 'it:tonno']})
+  @ApiProperty({description: 'Tags for allergens', type: [String]})
   @IsArray()
-  @ArrayNotEmpty()
   @IsString({each: true})
   allergens_tags: string[];
 
-  @ApiProperty({description: 'Brands associated with the product', example: 'Coop, Nino Castiglione'})
+  @ApiProperty({description: 'Brands associated with the product'})
   @IsString()
   brands: string;
 
-  @ApiProperty({description: 'Tags for brands', example: ['coop', 'nino-castiglione']})
+  @ApiProperty({description: 'Tags for brands', type: [String]})
   @IsArray()
-  @ArrayNotEmpty()
   @IsString({each: true})
   brands_tags: string[];
 
-  @ApiProperty({description: 'Categories of the product', example: 'Frutti di mare, Alimenti in scatola'})
+  @ApiProperty({description: 'Product categories'})
   @IsString()
   categories: string;
 
-  @ApiProperty({description: 'Locale for categories', example: 'it'})
+  @ApiProperty({description: 'Language code for categories'})
   @IsString()
   categories_lc: string;
 
-  @ApiProperty({description: 'Tags for categories', example: ['en:seafood', 'en:fishes']})
+  @ApiProperty({description: 'Tags for categories', type: [String]})
   @IsArray()
-  @ArrayNotEmpty()
   @IsString({each: true})
   categories_tags: string[];
 
-  @ApiProperty({description: 'Product code', example: '8001120811011'})
+  @ApiProperty({description: 'Product code'})
   @IsString()
   code: string;
 
-  @ApiProperty({description: 'Tags for countries', example: ['en:italy']})
+  @ApiProperty({description: 'Tags for countries', type: [String]})
   @IsArray()
-  @ArrayNotEmpty()
   @IsString({each: true})
   countries_tags: string[];
 
-  @ApiProperty({description: 'Creation timestamp', example: 1574856754})
+  @ApiProperty({description: 'Creation timestamp'})
   @IsNumber()
   created_t: number;
 
-  @ApiProperty({
-    description: 'Tags for data quality warnings',
-    example: ['en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown']
-  })
-  @IsArray()
-  @ArrayNotEmpty()
-  @IsString({each: true})
-  data_quality_warnings_tags: string[];
-
-  @ApiProperty({type: EcoscoreData})
+  @ApiProperty({description: 'Ecoscore data', type: EcoscoreData})
   @ValidateNested()
   @Type(() => EcoscoreData)
   ecoscore_data: EcoscoreData;
 
-  @ApiProperty({description: 'Extended ecosystem score data', type: 'object'})
-  @IsObject()
-  ecoscore_extended_data: Record<string, any>;
+  @ApiProperty({description: 'Extended ecoscore data', type: Object})
+  @IsOptional()
+  @IsArray()
+  ecoscore_extended_data: object;
 
-  @ApiProperty({description: 'Ecoscore grade', example: 'e'})
+  @ApiProperty({description: 'Ecoscore grade'})
   @IsString()
   ecoscore_grade: string;
 
-  @ApiProperty({description: 'Ecoscore score', example: 5})
+  @ApiProperty({description: 'Ecoscore score'})
   @IsNumber()
   ecoscore_score: number;
 
-  @ApiProperty({description: 'EMB codes', example: 'IT928CE'})
+  @ApiProperty({description: 'Packaging codes'})
   @IsString()
   emb_codes: string;
 
-  @ApiProperty({description: 'Generic name', example: ''})
-  @IsOptional()
+  @ApiProperty({description: 'Generic name'})
   @IsString()
   generic_name: string;
 
-  @ApiProperty({description: 'Generic name in English', example: ''})
-  @IsOptional()
+  @ApiProperty({description: 'Generic name in English'})
   @IsString()
   generic_name_en: string;
 
-  @ApiProperty({description: 'Generic name in Italian', example: ''})
-  @IsOptional()
+  @ApiProperty({description: 'Generic name in Italian'})
   @IsString()
   generic_name_it: string;
 
-  @ApiProperty({description: 'Generic name in Polish', example: ''})
-  @IsOptional()
+  @ApiProperty({description: 'Generic name in Polish'})
   @IsString()
   generic_name_pl: string;
 
-  @ApiProperty({description: 'Product ID', example: '8001120811011'})
+  @ApiProperty({description: 'Ingredients text'})
   @IsString()
-  id: string;
+  ingredients_text: string;
 
-  @ApiProperty({
-    description: 'URL for the front image (small)',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/front_it.39.200.jpg'
-  })
+  @ApiProperty({description: 'Ingredients text in English'})
   @IsString()
-  image_front_small_url: string;
+  ingredients_text_en: string;
 
-  @ApiProperty({
-    description: 'URL for the front image (thumbnail)',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/front_it.39.100.jpg'
-  })
+  @ApiProperty({description: 'Ingredients text in Italian'})
   @IsString()
-  image_front_thumb_url: string;
+  ingredients_text_it: string;
 
-  @ApiProperty({
-    description: 'URL for the front image',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/front_it.39.400.jpg'
-  })
+  @ApiProperty({description: 'Ingredients text with allergens'})
   @IsString()
-  image_front_url: string;
-  @ApiProperty({
-    description: 'URL for the ingredients image (small)',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/ingredients_it.28.200.jpg'
-  })
-  @IsString()
-  image_ingredients_small_url: string;
+  ingredients_text_with_allergens: string;
 
-  @ApiProperty({
-    description: 'URL for the ingredients image (thumbnail)',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/ingredients_it.28.100.jpg'
-  })
+  @ApiProperty({description: 'Ingredients text with allergens in Italian'})
   @IsString()
-  image_ingredients_thumb_url: string;
+  ingredients_text_with_allergens_it: string;
 
-  @ApiProperty({
-    description: 'URL for the ingredients image',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/ingredients_it.28.400.jpg'
-  })
+  @ApiProperty({description: 'Labels'})
   @IsString()
-  image_ingredients_url: string;
+  labels: string;
 
-  @ApiProperty({
-    description: 'URL for the nutrition image (small)',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/nutrition_it.33.200.jpg'
-  })
+  @ApiProperty({description: 'Labels hierarchy', type: [String]})
+  @IsArray()
+  @IsString({each: true})
+  labels_hierarchy: string[];
+
+  @ApiProperty({description: 'Language code for labels'})
   @IsString()
-  image_nutrition_small_url: string;
+  labels_lc: string;
 
-  @ApiProperty({
-    description: 'URL for the nutrition image (thumbnail)',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/nutrition_it.33.100.jpg'
-  })
+  @ApiProperty({description: 'Tags for labels', type: [String]})
+  @IsArray()
+  @IsString({each: true})
+  labels_tags: string[];
+
+  @ApiProperty({description: 'Language'})
   @IsString()
-  image_nutrition_thumb_url: string;
+  lang: string;
 
-  @ApiProperty({
-    description: 'URL for the nutrition image',
-    example: 'https://images.openfoodfacts.net/images/products/800/112/081/1011/nutrition_it.33.400.jpg'
-  })
+  @ApiProperty({description: 'Nutrient levels', type: Object})
+  @IsOptional()
+  @IsArray()
+  nutrient_levels: object;
+
+  @ApiProperty({description: 'Tags for nutrient levels', type: [String]})
+  @IsArray()
+  @IsString({each: true})
+  nutrient_levels_tags: string[];
+
+  @ApiProperty({description: 'Nutriments', type: Object})
+  @ValidateNested()
+  @Type(() => NutrimentsData)
+  nutriments: NutrimentsData;
+
+  @ApiProperty({description: 'Nutriscore', type: Object})
+  @IsArray()
+  nutriscore: object;
+
+  @ApiProperty({description: 'Packaging materials'})
   @IsString()
-  image_nutrition_url: string;
+  packaging: string;
 
-  @ApiProperty({description: 'Serving quantity', example: '56'})
+  @ApiProperty({description: 'Language code for packaging'})
+  @IsString()
+  packaging_lc: string;
+
+  @ApiProperty({description: 'Recycling tags for packaging', type: [String]})
+  @IsArray()
+  @IsString({each: true})
+  packaging_recycling_tags: string[];
+
+  @ApiProperty({description: 'PNNS groups 1'})
+  @IsString()
+  pnns_groups_1: string;
+
+  @ApiProperty({description: 'Tags for PNNS groups 1', type: [String]})
+  @IsArray()
+  @IsString({each: true})
+  pnns_groups_1_tags: string[];
+  @ApiProperty({description: 'PNNS groups 2'})
+  @IsString()
+  pnns_groups_2: string;
+
+  @ApiProperty({description: 'Tags for PNNS groups 2', type: [String]})
+  @IsArray()
+  @IsString({each: true})
+  pnns_groups_2_tags: string[];
+
+  @ApiProperty({description: 'Popularity key'})
+  @IsNumber()
+  popularity_key: number;
+
+  @ApiProperty({description: 'Popularity tags', type: [String]})
+  @IsArray()
+  @IsString({each: true})
+  popularity_tags: string[];
+
+  @ApiProperty({description: 'Product name'})
+  @IsString()
+  product_name: string;
+
+  @ApiProperty({description: 'Product name in English'})
+  @IsString()
+  product_name_en: string;
+
+  @ApiProperty({description: 'Product name in Italian'})
+  @IsString()
+  product_name_it: string;
+
+  @ApiProperty({description: 'Product quantity'})
+  @IsString()
+  product_quantity: string;
+
+  @ApiProperty({description: 'Quantity of the product'})
+  @IsString()
+  quantity: string;
+
+  @ApiProperty({description: 'Image URLs', type: Object})
+  @IsOptional()
+  @IsArray()
+  selected_images: object;
+
+  @ApiProperty({description: 'Serving quantity'})
   @IsString()
   serving_quantity: string;
 
-  @ApiProperty({description: 'Serving size', example: '56g'})
+  @ApiProperty({description: 'Serving size'})
   @IsString()
   serving_size: string;
 
-  @ApiProperty({description: 'Stores', example: 'Coop'})
+  @ApiProperty({description: 'Stores'})
+  @ApiProperty({description: 'Stores'})
   @IsString()
   stores: string;
 
-  @ApiProperty({description: 'Tags for stores', example: ['coop']})
+  @ApiProperty({description: 'Tags for stores', type: [String]})
   @IsArray()
-  @ArrayNotEmpty()
   @IsString({each: true})
   stores_tags: string[];
 
-  @ApiProperty({description: 'Traces', example: ''})
-  @IsOptional()
+  @ApiProperty({description: 'Traces'})
   @IsString()
   traces: string;
 
-  @ApiProperty({description: 'Traces from ingredients', example: ''})
-  @IsOptional()
+  @ApiProperty({description: 'Traces from ingredients'})
   @IsString()
   traces_from_ingredients: string;
 
-  @ApiProperty({description: 'Traces from user', example: '(en) '})
-  @IsOptional()
+  @ApiProperty({description: 'Traces from user'})
   @IsString()
   traces_from_user: string;
 
-  @ApiProperty({description: 'Traces hierarchy', example: []})
+  @ApiProperty({description: 'Traces hierarchy', type: [String]})
   @IsArray()
-  @IsOptional()
   @IsString({each: true})
   traces_hierarchy: string[];
 
-  @ApiProperty({description: 'Traces locale', example: 'en'})
+  @ApiProperty({description: 'Language code for traces'})
   @IsString()
   traces_lc: string;
 
-  @ApiProperty({description: 'Tags for traces', example: []})
+  @ApiProperty({description: 'Tags for traces', type: [String]})
   @IsArray()
-  @IsOptional()
   @IsString({each: true})
   traces_tags: string[];
 
-  @ApiProperty({description: 'Unique scans', example: 3})
-  @IsNumber()
-  unique_scans_n: number;
-
-  @ApiProperty({description: 'Number of unknown ingredients', example: 0})
+  @ApiProperty({description: 'Unknown ingredients number'})
   @IsNumber()
   unknown_ingredients_n: number;
 
-  @ApiProperty({description: 'Tags for unknown nutrients', example: []})
+  @ApiProperty({description: 'Tags for unknown nutrients', type: [String]})
   @IsArray()
-  @IsOptional()
   @IsString({each: true})
   unknown_nutrients_tags: string[];
 
-  @ApiProperty({description: 'Update key', example: '20240209'})
+  @ApiProperty({description: 'Update key'})
   @IsString()
   update_key: string;
 
-  @ApiProperty({description: 'Tags for vitamins', example: []})
+  @ApiProperty({description: 'Tags for vitamins', type: [String]})
   @IsArray()
-  @IsOptional()
   @IsString({each: true})
   vitamins_tags: string[];
 }

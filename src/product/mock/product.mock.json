@@ -1,0 +1,571 @@
+
+{
+  "_id": "8001120811011",
+  "_keywords": [
+    "no",
+    "canned",
+    "tuna",
+    "food",
+    "castiglione",
+    "seafood",
+    "preservative",
+    "tuna-in-brine",
+    "al",
+    "fishe",
+    "coop",
+    "naturale",
+    "2x160g",
+    "tonno",
+    "pinne",
+    "gialle",
+    "nino"
+  ],
+  "added_countries_tags": [],
+  "allergens_tags": [
+    "en:fish",
+    "it:tonno"
+  ],
+  "brands": "Coop, Nino Castiglione",
+  "brands_tags": [
+    "coop",
+    "nino-castiglione"
+  ],
+  "categories": "Frutti di mare, Alimenti in scatola, Pesci, en:Fatty fishes, Pesce in scatola, Tonno, Tonno in scatola, Tonno al naturale",
+  "categories_lc": "it",
+  "categories_tags": [
+    "en:seafood",
+    "en:fishes-and-their-products",
+    "en:canned-foods",
+    "en:fishes",
+    "en:fatty-fishes",
+    "en:canned-fishes",
+    "en:tunas",
+    "en:canned-tunas",
+    "en:tuna-in-brine"
+  ],
+  "code": "8001120811011",
+  "countries_tags": [
+    "en:italy"
+  ],
+  "created_t": 1574856754,
+  "ecoscore_data": {
+    //Agribalyse è un database francese che fornisce dati sull’impatto ambientale dei prodotti alimentari e agricoli. Creato e gestito dall’Agenzia per la Transizione Ecologica (ADEME), questo database permette di valutare l’impronta ecologica dei prodotti lungo l’intera filiera, dalla produzione agricola fino alla tavola del consumatore.
+    "agribalyse": {
+      "agribalyse_food_code": "26039",
+      "co2_agriculture": 5.3885872,
+      "co2_consumption": 0,
+      "co2_distribution": 0.022630512,
+      "co2_packaging": 9.7697831,
+      "co2_processing": 0.59392979,
+      "co2_total": 16.893125602, //Il valore co2_total rappresenta le emissioni totali di anidride carbonica (CO2) associate alla produzione, distribuzione e consumo di un prodotto alimentare specifico.
+      "co2_transportation": 1.118195,
+      "code": "26039",
+      "dqr": "3.1",
+      "ef_agriculture": 1.0250893,
+      "ef_consumption": 0,
+      "ef_distribution": 0.006448083,
+      "ef_packaging": 0.88558917,
+      "ef_processing": 0.062197864,
+      "ef_total": 2.076183865, //rappresenta l’impatto ambientale complessivo del prodotto misurato attraverso la metodologia dell’Environmental Footprint (EF), ovvero l’impronta ecologica totale.
+      "ef_transportation": 0.096859448,
+      "is_beverage": 0,
+      "name_en": "Tuna, plain, canned, drained",
+      "name_fr": "Thon, au naturel, appertisé, égoutté",
+      "score": 11,
+      "version": "3.1"
+    },
+    "grade": "e",
+    //Il valore “e” rappresenta la classificazione ambientale assegnata in ciascun paese. Tuttavia, per comprendere appieno il significato della lettera “e”, è necessario conoscere la scala di valutazione utilizzata (non fornita nei dati). In molti sistemi di classificazione, le lettere (come A, B, C, D, E) possono indicare vari livelli di prestazione ambientale, dove “A” potrebbe rappresentare un’alta sostenibilità e “E” potrebbe indicare un impatto ambientale negativo o insostenibile.
+    "grades": {
+      "ad": "e",
+      "al": "e",
+      "at": "e",
+      "ax": "e",
+      "ba": "e",
+      "be": "e",
+      "bg": "e",
+      "ch": "e",
+      "cy": "e",
+      "cz": "e",
+      "de": "e",
+      "dk": "e",
+      "dz": "e",
+      "ee": "e",
+      "eg": "e",
+      "es": "e",
+      "fi": "e",
+      "fo": "e",
+      "fr": "e",
+      "gg": "e",
+      "gi": "e",
+      "gr": "e",
+      "hr": "e",
+      "hu": "e",
+      "ie": "e",
+      "il": "e",
+      "im": "e",
+      "is": "e",
+      "it": "e",
+      "je": "e",
+      "lb": "e",
+      "li": "e",
+      "lt": "e",
+      "lu": "e",
+      "lv": "e",
+      "ly": "e",
+      "ma": "e",
+      "mc": "e",
+      "md": "e",
+      "me": "e",
+      "mk": "e",
+      "mt": "e",
+      "nl": "e",
+      "no": "e",
+      "pl": "e",
+      "ps": "e",
+      "pt": "e",
+      "ro": "e",
+      "rs": "e",
+      "se": "e",
+      "si": "e",
+      "sj": "e",
+      "sk": "e",
+      "sm": "e",
+      "sy": "e",
+      "tn": "e",
+      "tr": "e",
+      "ua": "e",
+      "uk": "e",
+      "us": "e",
+      "va": "e",
+      "world": "e",
+      "xk": "e"
+    },
+    "score": 5,
+    "scores": {
+      "ad": 5,
+      "al": 5,
+      "at": 5,
+      "ax": 5,
+      "ba": 5,
+      "be": 5,
+      "bg": 5,
+      "ch": 5,
+      "cy": 5,
+      "cz": 5,
+      "de": 5,
+      "dk": 5,
+      "dz": 5,
+      "ee": 5,
+      "eg": 5,
+      "es": 5,
+      "fi": 5,
+      "fo": 5,
+      "fr": 5,
+      "gg": 5,
+      "gi": 5,
+      "gr": 5,
+      "hr": 5,
+      "hu": 5,
+      "ie": 5,
+      "il": 5,
+      "im": 5,
+      "is": 5,
+      "it": 5,
+      "je": 5,
+      "lb": 5,
+      "li": 5,
+      "lt": 5,
+      "lu": 5,
+      "lv": 5,
+      "ly": 5,
+      "ma": 5,
+      "mc": 5,
+      "md": 5,
+      "me": 5,
+      "mk": 5,
+      "mt": 5,
+      "nl": 5,
+      "no": 5,
+      "pl": 5,
+      "ps": 5,
+      "pt": 5,
+      "ro": 5,
+      "rs": 5,
+      "se": 5,
+      "si": 5,
+      "sj": 5,
+      "sk": 5,
+      "sm": 5,
+      "sy": 5,
+      "tn": 5,
+      "tr": 5,
+      "ua": 5,
+      "uk": 5,
+      "us": 5,
+      "va": 5,
+      "world": 5,
+      "xk": 5
+    },
+    "status": "known"
+  },
+  "ecoscore_extended_data": {
+    "impact": {
+      "ef_single_score_log_stddev": 0.15678363710137,
+      "likeliest_impacts": {
+        "Climate_change": 0.300454724512501,
+        "EF_single_score": 0.0560630370817607
+      },
+      "likeliest_recipe": {
+        "en:salt": 1.07416345182322,
+        "en:water": 8.71361343734187,
+        "en:yellowfin_tuna": 89.9320264818337
+      },
+      "mass_ratio_uncharacterized": 0,
+      "uncharacterized_ingredients": {
+        "impact": [],
+        "nutrition": []
+      },
+      "uncharacterized_ingredients_mass_proportion": {
+        "impact": 0,
+        "nutrition": 0
+      },
+      "uncharacterized_ingredients_ratio": {
+        "impact": 0,
+        "nutrition": 0
+      },
+      "warnings": []
+    }
+  },
+  "ecoscore_grade": "e",
+  "ecoscore_score": 5,
+  "emb_codes": "IT928CE",
+  "generic_name": "",
+  "generic_name_en": "",
+  "generic_name_it": "",
+  "generic_name_pl": "",
+  "ingredients_text": "_tonno_ a pinne gialle (Thunnus albacares), acqua, sale.",
+  "ingredients_text_en": "",
+  "ingredients_text_it": "_tonno_ a pinne gialle (Thunnus albacares), acqua, sale.",
+  "ingredients_text_pl": "",
+  "ingredients_text_with_allergens": "<span class=\"allergen\">tonno</span> a pinne gialle (Thunnus albacares), acqua, sale.",
+  "ingredients_text_with_allergens_it": "<span class=\"allergen\">tonno</span> a pinne gialle (Thunnus albacares), acqua, sale.",
+  "labels": "Senza conservanti",
+  "labels_hierarchy": [
+    "en:no-preservatives"
+  ],
+  "labels_lc": "it",
+  "labels_tags": [
+    "en:no-preservatives"
+  ],
+  "lang": "it",
+  "nutrient_levels": {
+    "fat": "low",
+    "salt": "moderate",
+    "saturated-fat": "low",
+    "sugars": "low"
+  },
+  "nutrient_levels_tags": [
+    "en:fat-in-low-quantity",
+    "en:saturated-fat-in-low-quantity",
+    "en:sugars-in-low-quantity",
+    "en:salt-in-moderate-quantity"
+  ],
+  "nutriments": {
+    "carbohydrates": 0,
+    "carbohydrates_100g": 0,
+    "carbohydrates_serving": 0,
+    "carbohydrates_unit": "g",
+    "carbohydrates_value": 0,
+    "energy": 412,
+    "energy-kcal": 97,
+    "energy-kcal_100g": 97,
+    "energy-kcal_serving": 54.3,
+    "energy-kcal_unit": "kcal",
+    "energy-kcal_value": 97,
+    "energy-kcal_value_computed": 97.2,
+    "fat": 0.8,
+    "fat_100g": 0.8,
+    "fat_serving": 0.448,
+    "fat_unit": "g",
+    "fat_value": 0.8,
+    "fiber": 0,
+    "fiber_100g": 0,
+    "fiber_serving": 0,
+    "fiber_unit": "g",
+    "fiber_value": 0,
+    "nova-group": 3, //1: Alimenti non lavorati o minimamente lavorati, 2: Ingredienti culinari lavorati, 3: Alimenti lavorati, 4: Alimenti e bevande ultralavorati
+    "nova-group_100g": 3,
+    "nova-group_serving": 3,
+    "nutrition-score-fr": 1,
+    "nutrition-score-fr_100g": 1,
+    "proteins": 22.5,
+    "proteins_100g": 22.5,
+    "proteins_serving": 12.6,
+    "proteins_unit": "g",
+    "proteins_value": 22.5,
+    "salt": 1.3,
+    "salt_100g": 1.3,
+    "salt_serving": 0.728,
+    "salt_unit": "g",
+    "salt_value": 1.3,
+    "saturated-fat": 0.3,
+    "saturated-fat_100g": 0.3,
+    "saturated-fat_serving": 0.168,
+    "saturated-fat_unit": "g",
+    "saturated-fat_value": 0.3,
+    "sodium": 0.52,
+    "sodium_100g": 0.52,
+    "sodium_serving": 0.291,
+    "sodium_unit": "g",
+    "sodium_value": 0.52,
+    "sugars": 0,
+    "sugars_100g": 0,
+    "sugars_serving": 0,
+    "sugars_unit": "g",
+    "sugars_value": 0
+  },
+  "nutriscore": {
+    "2021": {
+      "category_available": 1,
+      "data": {
+        "energy": 412,
+        "energy_points": 1,
+        "energy_value": 412,
+        "fiber": 0,
+        "fiber_points": 0,
+        "fiber_value": 0,
+        "fruits_vegetables_nuts_colza_walnut_olive_oils": 0,
+        "fruits_vegetables_nuts_colza_walnut_olive_oils_points": 0,
+        "fruits_vegetables_nuts_colza_walnut_olive_oils_value": 0,
+        "is_beverage": 0,
+        "is_cheese": 0,
+        "is_fat": 0,
+        "is_water": 0,
+        "negative_points": 6,
+        "positive_points": 5,
+        "proteins": 22.5,
+        "proteins_points": 5,
+        "proteins_value": 22.5,
+        "saturated_fat": 0.3,
+        "saturated_fat_points": 0,
+        "saturated_fat_value": 0.3,
+        "sodium": 520,
+        "sodium_points": 5,
+        "sodium_value": 520,
+        "sugars": 0,
+        "sugars_points": 0,
+        "sugars_value": 0
+      },
+      "grade": "b",
+      "nutrients_available": 1,
+      "nutriscore_applicable": 1,
+      "nutriscore_computed": 1,
+      "score": 1
+    },
+    "2023": {
+      "category_available": 1,
+      "data": {
+        "components": {
+          "negative": [
+            {
+              "id": "energy",
+              "points": 1,
+              "points_max": 10,
+              "unit": "kJ",
+              "value": 412
+            },
+            {
+              "id": "sugars",
+              "points": 0,
+              "points_max": 15,
+              "unit": "g",
+              "value": 0
+            },
+            {
+              "id": "saturated_fat",
+              "points": 0,
+              "points_max": 10,
+              "unit": "g",
+              "value": 0.3
+            },
+            {
+              "id": "salt",
+              "points": 6,
+              "points_max": 20,
+              "unit": "g",
+              "value": 1.3
+            }
+          ],
+          "positive": [
+            {
+              "id": "proteins",
+              "points": 7,
+              "points_max": 7,
+              "unit": "g",
+              "value": 22.5
+            },
+            {
+              "id": "fiber",
+              "points": 0,
+              "points_max": 5,
+              "unit": "g",
+              "value": 0
+            },
+            {
+              "id": "fruits_vegetables_legumes",
+              "points": 0,
+              "points_max": 5,
+              "unit": "%",
+              "value": 0
+            }
+          ]
+        },
+        "count_proteins": 1,
+        "count_proteins_reason": "negative_points_less_than_11",
+        "is_beverage": 0,
+        "is_cheese": 0,
+        "is_fat_oil_nuts_seeds": 0,
+        "is_red_meat_product": 0,
+        "is_water": 0,
+        "negative_points": 7,
+        "negative_points_max": 55,
+        "positive_nutrients": [
+          "proteins",
+          "fiber",
+          "fruits_vegetables_legumes"
+        ],
+        "positive_points": 7,
+        "positive_points_max": 17
+      },
+      "grade": "a",
+      "nutrients_available": 1,
+      "nutriscore_applicable": 1,
+      "nutriscore_computed": 1,
+      "score": 0
+    }
+  },
+  "packaging": "FE40, PAP21", //indica i materiali di imballaggio, può essere usato per determinale la percentuale di riciclabilità del prodotto
+  "packaging_lc": "it",
+  "packaging_recycling_tags": [],
+  "pnns_groups_1": "Fish Meat Eggs", //fornisce una classificazione più dettagliata del prodotto alimentare all’interno del sistema di classificazione PNNS (Programme National Nutrition Santé).
+  "pnns_groups_1_tags": [
+    "fish-meat-eggs",
+    "known"
+  ],
+  "pnns_groups_2": "Fish and seafood",
+  "pnns_groups_2_tags": [
+    "fish-and-seafood",
+    "known"
+  ],
+  "popularity_key": 21900000003,
+  "popularity_tags": [
+    "top-100000-scans-2019",
+    "at-least-5-scans-2019",
+    "top-75-percent-scans-2019",
+    "top-80-percent-scans-2019",
+    "top-85-percent-scans-2019",
+    "top-90-percent-scans-2019",
+    "top-500-pl-scans-2019",
+    "top-1000-pl-scans-2019",
+    "top-5000-pl-scans-2019",
+    "top-10000-pl-scans-2019",
+    "top-50000-pl-scans-2019",
+    "top-100000-pl-scans-2019",
+    "top-country-pl-scans-2019",
+    "top-50000-de-scans-2019",
+    "top-100000-de-scans-2019",
+    "bottom-25-percent-scans-2020",
+    "bottom-20-percent-scans-2020",
+    "top-85-percent-scans-2020",
+    "top-90-percent-scans-2020",
+    "top-50000-it-scans-2020",
+    "top-100000-it-scans-2020",
+    "top-country-it-scans-2020",
+    "top-75-percent-scans-2021",
+    "top-80-percent-scans-2021",
+    "top-85-percent-scans-2021",
+    "top-90-percent-scans-2021",
+    "top-5000-it-scans-2021",
+    "top-10000-it-scans-2021",
+    "top-50000-it-scans-2021",
+    "top-100000-it-scans-2021",
+    "top-country-it-scans-2021",
+    "top-100000-scans-2022",
+    "top-75-percent-scans-2022",
+    "top-80-percent-scans-2022",
+    "top-85-percent-scans-2022",
+    "top-90-percent-scans-2022",
+    "top-5000-it-scans-2022",
+    "top-10000-it-scans-2022",
+    "top-50000-it-scans-2022",
+    "top-100000-it-scans-2022",
+    "top-country-it-scans-2022",
+    "top-75-percent-scans-2023",
+    "top-80-percent-scans-2023",
+    "top-85-percent-scans-2023",
+    "top-90-percent-scans-2023",
+    "top-5000-it-scans-2023",
+    "top-10000-it-scans-2023",
+    "top-50000-it-scans-2023",
+    "top-100000-it-scans-2023",
+    "top-country-it-scans-2023"
+  ],
+  "product_name": "Tonno a Pinne Gialle Al Naturale 2x160g",
+  "product_name_en": "",
+  "product_name_it": "Tonno a Pinne Gialle Al Naturale 2x160g",
+  "product_name_pl": "",
+  "product_quantity": "224",
+  "quantity": "224 g (2 x 112 g)",
+  "selected_images": {
+    "front": {
+      "display": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/front_it.39.400.jpg"
+      },
+      "small": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/front_it.39.200.jpg"
+      },
+      "thumb": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/front_it.39.100.jpg"
+      }
+    },
+    "ingredients": {
+      "display": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/ingredients_it.28.400.jpg"
+      },
+      "small": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/ingredients_it.28.200.jpg"
+      },
+      "thumb": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/ingredients_it.28.100.jpg"
+      }
+    },
+    "nutrition": {
+      "display": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/nutrition_it.33.400.jpg"
+      },
+      "small": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/nutrition_it.33.200.jpg"
+      },
+      "thumb": {
+        "it": "https://images.openfoodfacts.net/images/products/800/112/081/1011/nutrition_it.33.100.jpg"
+      }
+    }
+  },
+  "serving_quantity": "56",
+  "serving_size": "56g",
+  "stores": "Coop",
+  "stores_tags": [
+    "coop"
+  ],
+  "traces": "",
+  "traces_from_ingredients": "",
+  "traces_from_user": "(en) ",
+  "traces_hierarchy": [],
+  "traces_lc": "en",
+  "traces_tags": [],
+  "unknown_ingredients_n": 0,
+  "unknown_nutrients_tags": [],
+  "update_key": "20240209",
+  "vitamins_tags": []
+}

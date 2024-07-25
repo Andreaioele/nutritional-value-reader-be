@@ -161,7 +161,7 @@ export class PantryController {
     status: 200,
     description: 'Detailed pantry products retrieved',
     isArray: false,
-    type: PantryDto,
+    type: PantryDetailedDto,
   })
   @ApiResponse({
     status: 404,

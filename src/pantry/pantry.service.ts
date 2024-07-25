@@ -6,7 +6,7 @@ import {RemoveProductFromPantryDto} from "./dto/remove-product.dto";
 import {PantryDetailedDto} from "./dto/pantryDetailed.dto";
 import {PantryDto} from "./dto/pantry.dto";
 import {Product} from "../product/schemas/product.schema";
-import {Agribalyse, EcoscoreData, ProductDto} from "../product/dto/product.dto";
+import {AgribalyseData, EcoscoreData, NutrimentsData, ProductDto} from "../product/dto/product.dto";
 import {plainToClass} from "class-transformer";
 import {CACHE_MANAGER} from "@nestjs/cache-manager";
 import {Cache} from "cache-manager";
@@ -103,6 +103,7 @@ export class PantryService {
   mapToProductDto(data: any): ProductDto {
     const agribalyse = this.mapToAgribalyse(data);
     const ecoscoreData = this.mapToEcoscoreData(data, agribalyse);
+    const nutriments = this.mapToNutrimentsData(data);
 
     return plainToClass(ProductDto, {
       _id: data._id,
@@ -117,7 +118,6 @@ export class PantryService {
       code: data.code,
       countries_tags: data.countries_tags,
       created_t: data.created_t,
-      data_quality_warnings_tags: data.data_quality_warnings_tags,
       ecoscore_data: ecoscoreData,
       ecoscore_extended_data: data.ecoscore_extended_data,
       ecoscore_grade: data.ecoscore_grade,
@@ -126,17 +126,35 @@ export class PantryService {
       generic_name: data.generic_name,
       generic_name_en: data.generic_name_en,
       generic_name_it: data.generic_name_it,
-      generic_name_pl: data.generic_name_pl,
-      id: data.id,
-      image_front_small_url: data.image_front_small_url,
-      image_front_thumb_url: data.image_front_thumb_url,
-      image_front_url: data.image_front_url,
-      image_ingredients_small_url: data.image_ingredients_small_url,
-      image_ingredients_thumb_url: data.image_ingredients_thumb_url,
-      image_ingredients_url: data.image_ingredients_url,
-      image_nutrition_small_url: data.image_nutrition_small_url,
-      image_nutrition_thumb_url: data.image_nutrition_thumb_url,
-      image_nutrition_url: data.image_nutrition_url,
+      ingredients_text: data.ingredients_text,
+      ingredients_text_en: data.ingredients_text_en,
+      ingredients_text_it: data.ingredients_text_it,
+      ingredients_text_with_allergens: data.ingredients_text_with_allergens,
+      ingredients_text_with_allergens_it: data.ingredients_text_with_allergens_it,
+      labels: data.labels,
+      labels_hierarchy: data.labels_hierarchy,
+      labels_lc: data.labels_lc,
+      labels_tags: data.labels_tags,
+      lang: data.lang,
+      nutrient_levels: data.nutrient_levels,
+      nutrient_levels_tags: data.nutrient_levels_tags,
+      nutriments: nutriments,
+      nutriscore: data.nutriscore,
+      packaging: data.packaging,
+      packaging_lc: data.packaging_lc,
+      packaging_recycling_tags: data.packaging_recycling_tags,
+      pnns_groups_1: data.pnns_groups_1,
+      pnns_groups_1_tags: data.pnns_groups_1_tags,
+      pnns_groups_2: data.pnns_groups_2,
+      pnns_groups_2_tags: data.pnns_groups_2_tags,
+      popularity_key: data.popularity_key,
+      popularity_tags: data.popularity_tags,
+      product_name: data.product_name,
+      product_name_en: data.product_name_en,
+      product_name_it: data.product_name_it,
+      product_quantity: data.product_quantity,
+      quantity: data.quantity,
+      selected_images: data.selected_images,
       serving_quantity: data.serving_quantity,
       serving_size: data.serving_size,
       stores: data.stores,
@@ -155,8 +173,8 @@ export class PantryService {
     });
   }
 
-  mapToAgribalyse(data: any): Agribalyse {
-    return plainToClass(Agribalyse, {
+  mapToAgribalyse(data: any): AgribalyseData {
+    return plainToClass(AgribalyseData, {
       agribalyse_food_code: data.agribalyse_food_code,
       co2_agriculture: data.co2_agriculture,
       co2_consumption: data.co2_consumption,
@@ -165,6 +183,7 @@ export class PantryService {
       co2_processing: data.co2_processing,
       co2_total: data.co2_total,
       co2_transportation: data.co2_transportation,
+      code: data.code,
       dqr: data.dqr,
       ef_agriculture: data.ef_agriculture,
       ef_consumption: data.ef_consumption,
@@ -181,15 +200,71 @@ export class PantryService {
     });
   }
 
-  mapToEcoscoreData(data: any, agribalyse: Agribalyse): EcoscoreData {
+  mapToEcoscoreData(data: any, agribalyse: AgribalyseData): EcoscoreData {
     return plainToClass(EcoscoreData, {
       agribalyse: agribalyse,
       grade: data.grade,
       grades: data.grades,
-      previous_data: data.previous_data,
       score: data.ecoscore_score,
       scores: data.scores,
       status: data.status,
+    });
+  }
+
+  mapToNutrimentsData(data: any): NutrimentsData {
+    return plainToClass(NutrimentsData, {
+      carbohydrates: data.nutriments.carbohydrates,
+      carbohydrates_100g: data.nutriments.carbohydrates_100g,
+      carbohydrates_serving: data.nutriments.carbohydrates_serving,
+      carbohydrates_unit: data.nutriments.carbohydrates_unit,
+      carbohydrates_value: data.nutriments.carbohydrates_value,
+      energy: data.nutriments.energy,
+      energy_kcal: data.nutriments['energy-kcal'],
+      energy_kcal_100g: data.nutriments['energy-kcal_100g'],
+      energy_kcal_serving: data.nutriments['energy-kcal_serving'],
+      energy_kcal_unit: data.nutriments['energy-kcal_unit'],
+      energy_kcal_value: data.nutriments['energy-kcal_value'],
+      energy_kcal_value_computed: data.nutriments['energy-kcal_value_computed'],
+      fat: data.nutriments.fat,
+      fat_100g: data.nutriments.fat_100g,
+      fat_serving: data.nutriments.fat_serving,
+      fat_unit: data.nutriments.fat_unit,
+      fat_value: data.nutriments.fat_value,
+      fiber: data.nutriments.fiber,
+      fiber_100g: data.nutriments.fiber_100g,
+      fiber_serving: data.nutriments.fiber_serving,
+      fiber_unit: data.nutriments.fiber_unit,
+      fiber_value: data.nutriments.fiber_value,
+      nuova_group: data.nutriments['nova-group'],
+      nova_group_100g: data.nutriments['nova-group_100g'],
+      nova_group_serving: data.nutriments['nova-group_serving'],
+      nutrition_score_fr: data.nutriments['nutrition-score-fr'],
+      nutrition_score_fr_100g: data.nutriments['nutrition-score-fr_100g'],
+      proteins: data.nutriments.proteins,
+      proteins_100g: data.nutriments.proteins_100g,
+      proteins_serving: data.nutriments.proteins_serving,
+      proteins_unit: data.nutriments.proteins_unit,
+      proteins_value: data.nutriments.proteins_value,
+      salt: data.nutriments.salt,
+      salt_100g: data.nutriments.salt_100g,
+      salt_serving: data.nutriments.salt_serving,
+      salt_unit: data.nutriments.salt_unit,
+      salt_value: data.nutriments.salt_value,
+      saturated_fat: data.nutriments['saturated-fat'],
+      saturated_fat_100g: data.nutriments['saturated-fat_100g'],
+      saturated_fat_serving: data.nutriments['saturated-fat_serving'],
+      saturated_fat_unit: data.nutriments['saturated-fat_unit'],
+      saturated_fat_value: data.nutriments['saturated-fat_value'],
+      sodium: data.nutriments.sodium,
+      sodium_100g: data.nutriments.sodium_100g,
+      sodium_serving: data.nutriments.sodium_serving,
+      sodium_unit: data.nutriments.sodium_unit,
+      sodium_value: data.nutriments.sodium_value,
+      sugars: data.nutriments.sugars,
+      sugars_100g: data.nutriments.sugars_100g,
+      sugars_serving: data.nutriments.sugars_serving,
+      sugars_unit: data.nutriments.sugars_unit,
+      sugars_value: data.nutriments.sugars_value,
     });
   }
 }
